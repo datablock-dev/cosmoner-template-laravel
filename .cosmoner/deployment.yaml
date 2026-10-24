@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://cosmoner.com/schemas/app.schema.json
+version: 1
+name: Laravel
+
+services:
+  - name: web
+    type: service
+    autodeploy: true
+    # The SQLite database is a file inside the running app, so each instance
+    # has its own. Keep to one instance while your data lives there.
+    instances: 1
+    envs:
+      # Laravel's encryption key. Generate one with
+      # `php artisan key:generate --show`; the wizard asks for it.
+      - key: APP_KEY
+        secret: true
